@@ -1,124 +1,9 @@
 @extends('client.layout.app')
+@section('pageTitle','Home')
 @section('content')
- <!-- Slider area Start -->
- <section class="homepage-slider mb--11pt5">
-    <div class="element-carousel slick-right-bottom" data-slick-options='{
-        "slidesToShow": 1, 
-        "dots": true
-    }'>
-        <div class="item">
-            <div class="single-slide d-flex align-items-center bg-image"
-                data-bg-image="/client/img/slider/slider-bg-01.jpg">
-                <div class="container">
-                    <div class="row align-items-center g-0 w-100">
-                        <div class="col-lg-6 col-md-8">
-                            <div class="slider-content">
-                                <div class="slider-content__text mb--95 md-lg--80 mb-md--40 mb-sm--15">
-                                    <h3 class="text-uppercase font-weight-light" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".3s">AMAZING PRODUCT!</h3>
-                                    <h1 class="heading__primary mb--40 mb-md--20" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".3s">BACKPACK</h1>
-                                    <p class="font-weight-light" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".3s">Neque porro quisquam est, qui
-                                        dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                        quia non numquam eius modi
-                                        tempora Neque porro quisquam est, qui dolorem ipsum</p>
-                                </div>
-                                <div class="slider-content__btn">
-                                    <a href="shop.html" class="btn-link" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".6s">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 offset-lg-2 col-md-4">
-                            <figure class="slider-image d-none d-md-block">
-                                <img src="/client/img/slider/slider-image-01.png" alt="Slider Image">
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="single-slide d-flex align-items-center bg-image"
-                data-bg-image="/client/img/slider/slider-bg-01.jpg">
-                <div class="container">
-                    <div class="row align-items-center g-0 w-100">
-                        <div class="col-lg-6 col-md-8">
-                            <div class="slider-content py-0">
-                                <div class="slider-content__text mb--95 md-lg--80 mb-md--40 mb-sm--15">
-                                    <h3 class="text-uppercase font-weight-light" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".3s">AMAZING PRODUCT!</h3>
-                                    <h1 class="heading__primary mb--40 mb-md--20" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".3s">BACKPACK</h1>
-                                    <p class="font-weight-light" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".3s">Neque porro quisquam est, qui
-                                        dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                        quia non numquam eius modi
-                                        tempora Neque porro quisquam est, qui dolorem ipsum</p>
-                                </div>
-                                <div class="slider-content__btn">
-                                    <a href="shop.html" class="btn-link" data-animation="fadeInUp"
-                                        data-duration=".3s" data-delay=".6s">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 offset-lg-2 col-md-4">
-                            <figure class="slider-image d-none d-md-block">
-                                <img src="/client/img/slider/slider-image-02.png" alt="Slider Image">
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Slider area End -->
 
-<!-- Featured Product Area Start -->
-<section class="featured-product-area mb--10pt8">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="sr-only">Featured Product</h2>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-sm--50">
-                <div class="featured-product">
-                    <div class="featured-product__inner info-center">
-                        <figure class="featured-product__image">
-                            <img src="/client/img/products/product-01-500x466.jpg" alt="Featured Product">
-                        </figure>
-                        <div class="featured-product__info wow pbounceInLeft" data-wow-delay=".3s" data-wow-duration="1s">
-                            <div class="featured-product__info-inner">
-                                <h4 class="featured-product__text">Amazing Product!</h4>
-                                <h2 class="featured-product__name">Bisco Bag</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="featured-product">
-                    <div class="featured-product__inner info-left-bottom">
-                        <figure class="featured-product__image">
-                            <img src="/client/img/products/product-02-500x575.jpg" alt="Featured Product">
-                        </figure>
-                        <div class="featured-product__info wow pbounceInDown" data-wow-duration="1s">
-                            <div class="featured-product__info-inner rotated-info">
-                                <h4 class="featured-product__text">Special Offer <strong>39%</strong> Off</h4>
-                                <h2 class="featured-product__name">Feedo Bag</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Featured Product Area End -->
+@include('client.layout.slider')
+
 
 <!-- Product Area Start -->
 <section class="product-area mb--50 mb-xl--40 mb-lg--25 mb-md--30 mb-sm--20 mb-xs--15">
@@ -131,28 +16,27 @@
             </div>
         </div>
         <div class="row">
+            @forelse($products as $product)
             <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
                 <div class="payne-product">
                     <div class="product__inner">
                         <div class="product__image">
                             <figure class="product__image--holder">
-                                <img src="/client/img/products/product-03-270x300.jpg" alt="Product">
+                                <img src="{{ $product->featuredImage ? asset('uploads/' . $product->featuredImage->image_path) : asset('/client/img/products/product-placeholder.jpg') }}" 
+                                     alt="{{ $product->title }}">
                             </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
+                            
+                            <a href="{{ route('product.details', $product->slug) }}" class="product-overlay"></a>
                             <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
+                                <a data-bs-toggle="modal" data-bs-target="#productModal-{{ $product->id }}" class="action-btn">
                                     <i class="fa fa-eye"></i>
                                     <span class="sr-only">Quick View</span>
                                 </a>
-                                <a href="wishlist.html" class="action-btn">
+                                <a href="{{ route('wishlist.add', $product->id) }}" class="action-btn">
                                     <i class="fa fa-heart-o"></i>
                                     <span class="sr-only">Add to wishlist</span>
                                 </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
+                                <a href="{{ route('cart.add', $product->id) }}" class="action-btn">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span class="sr-only">Add To Cart</span>
                                 </a>
@@ -161,15 +45,16 @@
                         <div class="product__info">
                             <div class="product__info--left">
                                 <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
+                                    <a href="{{ route('product.details', $product->slug) }}">{{ $product->title }}</a>
                                 </h3>
                                 <div class="product__price">
-                                    <span class="money">132.00</span>
+                                    <span class="money">{{ number_format($product->sale_price, 2) }}</span>
                                     <span class="sign">$</span>
                                 </div>
                             </div>
                             <div class="product__info--right">
                                 <span class="product__rating">
+                                    {{-- You might want to add a rating system later --}}
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -181,356 +66,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-04-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @empty
+            <div class="col-12 text-center">
+                <p>No products available at the moment.</p>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-05-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-06-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-07-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-08-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-09-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb--65 mb-md--50">
-                <div class="payne-product">
-                    <div class="product__inner">
-                        <div class="product__image">
-                            <figure class="product__image--holder">
-                                <img src="/client/img/products/product-10-270x300.jpg" alt="Product">
-                            </figure>
-                            <a href="product-details.html" class="product-overlay"></a>
-                            <div class="product__action">
-                                <a data-bs-toggle="modal" data-bs-target="#productModal" class="action-btn">
-                                    <i class="fa fa-eye"></i>
-                                    <span class="sr-only">Quick View</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="sr-only">Add to wishlist</span>
-                                </a>
-                                <a href="wishlist.html" class="action-btn">
-                                    <i class="fa fa-repeat"></i>
-                                    <span class="sr-only">Add To Compare</span>
-                                </a>
-                                <a href="cart.html" class="action-btn">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="sr-only">Add To Cart</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product__info">
-                            <div class="product__info--left">
-                                <h3 class="product__title">
-                                    <a href="product-details.html">Lexbaro Begadi</a>
-                                </h3>
-                                <div class="product__price">
-                                    <span class="money">132.00</span>
-                                    <span class="sign">$</span>
-                                </div>
-                            </div>
-                            <div class="product__info--right">
-                                <span class="product__rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -543,31 +83,20 @@
             <div class="col-lg-6 mb-md--40 mb-sm--45">
                 <div class="limited-product__image">
                     <div class="limited-product__title">
-                        <h2>Backpack</h2>
+                        <h2>{{ $featuredProduct->title ?? 'Featured Product' }}</h2>
                     </div>
                     <div class="limited-product__large-image">
                         <div class="element-carousel main-slider" data-slick-options='{
                             "slidesToShow": 1,
                             "asNavFor": ".nav-slider"
                         }'>
-                            <div class="item">
-                                <figure>
-                                    <img src="/client/img/products/product-11-321x450.png"
-                                        alt="Countdown Product">
-                                </figure>
-                            </div>
-                            <div class="item">
-                                <figure>
-                                    <img src="/client/img/products/product-12-321x450.png"
-                                        alt="Countdown Product">
-                                </figure>
-                            </div>
-                            <div class="item">
-                                <figure>
-                                    <img src="/client/img/products/product-13-321x450.png"
-                                        alt="Countdown Product">
-                                </figure>
-                            </div>
+                            @foreach($featuredProduct->images as $image)
+                                <div class="item">
+                                    <figure>
+                                        <img src="{{ asset('uploads/' . $image->image_path) }}" alt="{{ $featuredProduct->title }}">
+                                    </figure>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="limited-product__nav-image">
@@ -580,26 +109,14 @@
                         }' 
                         data-slick-responsive='[
                             {"breakpoint": 576, "settings": { "vertical": false }}
-                        ]'
-                        >
-                            <div class="item">
-                                <figure>
-                                    <img src="/client/img/products/product-11-123x127.jpg"
-                                        alt="Product Nav Image">
-                                </figure>
-                            </div>
-                            <div class="item">
-                                <figure>
-                                    <img src="/client/img/products/product-12-123x127.jpg"
-                                        alt="Product Nav Image">
-                                </figure>
-                            </div>
-                            <div class="item">
-                                <figure>
-                                    <img src="/client/img/products/product-13-123x127.jpg"
-                                        alt="Product Nav Image">
-                                </figure>
-                            </div>
+                        ]'>
+                            @foreach($featuredProduct->images as $image)
+                                <div class="item">
+                                    <figure>
+                                        <img src="{{ asset('uploads/' . $image->image_path) }}" alt="{{ $featuredProduct->title }}">
+                                    </figure>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -607,13 +124,12 @@
             <div class="col-xl-5 offset-xl-1 col-lg-6">
                 <div class="limited-product__info">
                     <h2 class="limited-product__name">
-                        <a href="product-details.html">BLINGO BACKPACK</a>
+                        <a href="{{ route('product.details', $featuredProduct->slug) }}">{{ $featuredProduct->title }}</a>
                     </h2>
-                    <p class="limited-product__desc">Neque porro quisquam est, qui dolorem ipsum quia dolor
-                        ipisci velit, sed quia non numquam eius modi </p>
+                    <p class="limited-product__desc">{!! $featuredProduct->description !!}</p>
                     <div class="d-flex align-items-center">
                         <div class="limited-product__price">
-                            <span class="money">162</span>
+                            <span class="money">{{ number_format($featuredProduct->sale_price, 2) }}</span>
                             <span class="sign">$</span>
                         </div>
                         <span class="limited-product__rating">
@@ -647,59 +163,14 @@
                             </div>
                         </div>
                     </div>
-                    <a href="shop.html" class="btn-link">Shop Now</a>
+                    <a href="" class="btn-link">Shop Now</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Countdown Product Area End -->
 
-<!-- Featured Product Area Start -->
-<section class="featured-product-area mb--11pt5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="sr-only">Featured Product</h2>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-sm--50">
-                <div class="featured-product">
-                    <div class="featured-product__inner info-right-bottom">
-                        <figure class="featured-product__image">
-                            <img src="/client/img/products/product-14-500x575.jpg" alt="Featured Product">
-                        </figure>
-                        <div class="featured-product__info wow pbounceInDown" data-wow-delay=".6s" data-wow-duration=".8s">
-                            <div class="featured-product__info-inner rotated-info">
-                                <h4 class="featured-product__text">Special Offer <strong>39%</strong> Off</h4>
-                                <h2 class="featured-product__name">Feedo Bag</h2>
-                            </div>
-                        </div>
-                        <span class="featured-product__badge badge-top-left">53% off</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="featured-product">
-                    <div class="featured-product__inner info-center">
-                        <figure class="featured-product__image">
-                            <img src="/client/img/products/product-15-500x466.jpg" alt="Featured Product">
-                        </figure>
-                        <div class="featured-product__info wow pbounceInLeft" data-wow-delay=".3s" data-wow-duration=".8s">
-                            <div class="featured-product__info-inner">
-                                <h4 class="featured-product__text">Mega Sale Offer</h4>
-                                <h2 class="featured-product__name">Maxica Bag</h2>
-                            </div>
-                        </div>
-                        <span class="featured-product__badge">53% off</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Featured Product Area End -->
+<!-- Countdown Product Area End -->
 
 <section class="method-area mb--11pt5">
     <div class="container">
@@ -730,4 +201,5 @@
         </div>
     </div>
 </section>
+
 @endsection

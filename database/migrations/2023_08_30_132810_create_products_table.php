@@ -21,9 +21,6 @@ return new class extends Migration
             $table->unsignedBigInteger('featured_image_id')->nullable();
             $table->integer('quantity_in_stock');
             $table->unsignedBigInteger('category_id');
-            // $table->boolean('is_featured')->default(false);
-            // $table->boolean('is_new_arrival')->default(false);
-            // $table->boolean('is_on_sale')->default(false);
             $table->timestamps();
         
             // $table->foreign('featured_image_id')->references('id')->on('product_images')->onDelete('set null');

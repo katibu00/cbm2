@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PickupCenterController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
@@ -23,17 +24,31 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    if(Auth::user()){
+// Route::get('/', function () {
+//     if(Auth::user()){
         
-        if(Auth::user()->user_type == 'admin')
-        {
-            return redirect()->route('home.admin');
-        }
-    }
+//         if(Auth::user()->user_type == 'admin')
+//         {
+//             return redirect()->route('home.admin');
+//         }
+//     }
 
-    return view('client.pages.index');
+//     return view('client.pages.index');
+// });
+
+
+Route::controller(PagesController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/shop', 'shop')->name('shop');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/contact', 'contact')->name('contact');
 });
+
+Route::get('/product/{slug}', [PagesController::class, 'show'])->name('product.details');
+Route::post('/wishlist/add/{id}', [WishlistController::class, 'add'])->name('wishlist.add');
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+
+
 
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'login']);
